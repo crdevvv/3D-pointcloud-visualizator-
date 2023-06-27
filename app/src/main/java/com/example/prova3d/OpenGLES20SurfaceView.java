@@ -3,12 +3,9 @@ package com.example.prova3d;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.opengl.GLSurfaceView;
-import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class OpenGLES20SurfaceView extends GLSurfaceView {
 
@@ -31,7 +28,6 @@ public class OpenGLES20SurfaceView extends GLSurfaceView {
         mScaleDetector = new ScaleGestureDetector(context,new PinchZoomListener());
         mRenderer = new OpenGLES20Renderer();
         setRenderer(mRenderer);
-        System.out.println("fffffffff");
         //Render the view only when there is a change
         this.requestFocus();
         this.setFocusableInTouchMode(true);
@@ -85,8 +81,6 @@ public class OpenGLES20SurfaceView extends GLSurfaceView {
 
                     startTouchTime = System.currentTimeMillis();
                     deltaTime[0] = startTouchTime;
-                    // System.out.println(x + "  " + y);
-                    // Remember where we started
                     if (!firstTouch) {
                         touches[0] = x;
                         touches[1] = y;

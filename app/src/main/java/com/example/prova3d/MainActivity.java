@@ -38,15 +38,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         glSurfaceView = new OpenGLES20SurfaceView(this);
         setContentView(glSurfaceView);
-        //glSurfaceView = findViewById(R.id.surface);
-        System.out.println("aaaaaaaaa");
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
     }
 
-    @Override
-    public void onDestroy(){
-        super.onDestroy();
-    }
 
     @Override
     protected void onResume() {
@@ -58,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
             intent.addCategory(Intent.CATEGORY_OPENABLE);
             intent.setType("*/*");
             startActivityForResult(intent, READ_REQUEST_CODE);
-            System.out.println("bbbbbbbbbbb");
         }
     }
 
@@ -79,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
                 mUri = data.getData();
                 System.out.println(getExternalFilesDir(null).getAbsolutePath() + "/" + mUri.getPath().split(":")[1]);
                 DogArray<Point3dRgbI_F32> storage = new DogArray<>(Point3dRgbI_F32::new);
-                System.out.println("cccccccc");
                 try {
                     for (int i=0; i<2; i++) {
                         Toast.makeText(getApplicationContext(), "Loading Point cloud...", Toast.LENGTH_LONG).show();

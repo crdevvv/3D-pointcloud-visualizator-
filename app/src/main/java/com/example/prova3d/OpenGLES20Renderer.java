@@ -14,7 +14,6 @@ import java.util.Optional;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-import javax.vecmath.Vector3f;
 
 public class OpenGLES20Renderer implements GLSurfaceView.Renderer {
 
@@ -38,7 +37,7 @@ public class OpenGLES20Renderer implements GLSurfaceView.Renderer {
     private final float[] resultFar = new float[4];
 
     public float mTranslX;
-    public float mTranslY;
+
     public float mAngleZ;
     public float mAngleX;
 
@@ -63,8 +62,6 @@ public class OpenGLES20Renderer implements GLSurfaceView.Renderer {
 
         Matrix.multiplyMM(mTempMatrix, 0, mRotationZMatrix, 0, mRotationXMatrix, 0);
         Matrix.multiplyMM(mTempMatrix2, 0, mTempMatrix, 0, mTranslationMatrix, 0);
-
-
 
         Matrix.multiplyMM(mMVPMatrix, 0, mVMatrix, 0, mTempMatrix2, 0);
         Matrix.multiplyMM(mMVPMatrix, 0, mProjMatrix, 0, mMVPMatrix, 0);
@@ -99,7 +96,6 @@ public class OpenGLES20Renderer implements GLSurfaceView.Renderer {
         muMVPMatrixHandle = GLES20.glGetUniformLocation(mProgram, "uMVPMatrix");
 
         Matrix.setLookAtM(mVMatrix, 0,findXMin(),findYMin(),findZMin(), centerX, centerY, centerZ, 0f, 1f, 0f);
-
         Matrix.translateM(mVMatrix,0,mVMatrix,0,centerX,centerY,centerZ);
     }
 
