@@ -14,6 +14,7 @@ import java.util.Optional;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
+import javax.vecmath.Vector3f;
 
 public class OpenGLES20Renderer implements GLSurfaceView.Renderer {
 
@@ -91,7 +92,6 @@ public class OpenGLES20Renderer implements GLSurfaceView.Renderer {
         float centerX = (findXMin() + findXMax()) / 2.0f;
         float centerY = (findYMin() + findYMax()) / 2.0f;
         float centerZ = (findZMin() + findZMax()) / 2.0f;
-
         Matrix.frustumM(mProjMatrix, 0, -ratio, ratio, -1, 1, 1f, 1000f);
         muMVPMatrixHandle = GLES20.glGetUniformLocation(mProgram, "uMVPMatrix");
 

@@ -6,7 +6,7 @@ import java.util.List;
 public class KdTree {
 
     private final int dimensions;
-    private Node root;
+    private final Node root;
     private Node best = null;
     private double bestDistance = 0;
     private int visited = 0;
@@ -69,7 +69,7 @@ public class KdTree {
     }
 
     private static class NodeComparator implements Comparator<Node> {
-        private int index_;
+        private final int index_;
 
         private NodeComparator(int index) {
             index_ = index;
